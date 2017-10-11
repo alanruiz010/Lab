@@ -1,20 +1,35 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
-  <img width="300" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
+   <script src="./app.compponent.css"></script>
+
+ <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<div class="container">
+  <div style="margin:10px 0 10px 0">
+      <button type="button" class="btn btn-primary glyphicon glyphicon-plus" (click)=showAltaPrompt()> Usuario</button>
+     
+  </div>
+   
+
+  <table class="tabla text-center table table-bordered" >
+    <thead>
+    <tr style="background-color: BLACK;color:WHITE;"><th>Gustos</th><th>Tipo</th><th>Cantidad</th><th>Foto</th><th>Eliminar</th><th>Editar</th></tr>
+    </thead>  
+    <tr *ngFor = "let pizza of datosTraidos"> 
+      <td><img [ngStyle]="{'width': '100px'}" src="http://localhost:80/API2/fotos/{{pizza.id}}.png"></td>       
+      <td>{{pizza.sabor}}</td>
+      <td>{{pizza.tipo}}</td>
+      <td>{{pizza.cantidad}}</td>
+     <!-- <td>{{(pizza.sexo == 'f') ? 'femenino' : 'masculino'}}</td>    -->   
+      
+      <td><button class='glyphicon glyphicon-trash btn btn-danger'(click)="EliminarPizza(pizza.id)">  Eliminar </button></td>
+      <td><button  class='btn btn-warning glyphicon glyphicon-pencil' (click)="showModificacionPrompt(pizza.id, pizza.sabor,pizza.tipo,pizza.cantidad)">  Modificar</button></td>
+    </tr>
+  </table>
+     <div>
+<br> <img src="{{foto}}" id="fotoPrevia" style=" width: 120px; height: 120px;" > <input type="file" id="foto" (change)="PrevisualizarFoto();"/>
+</div> 
+
+</div>
