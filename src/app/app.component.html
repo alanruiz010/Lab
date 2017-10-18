@@ -1,35 +1,3 @@
+<app-menu></app-menu>
+<router-outlet></router-outlet>
 
-   <script src="./app.compponent.css"></script>
-
- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<div class="container">
-  <div style="margin:10px 0 10px 0">
-      <button type="button" class="btn btn-primary glyphicon glyphicon-plus" (click)=showAltaPrompt()> Usuario</button>
-     
-  </div>
-   
-
-  <table class="tabla text-center table table-bordered" >
-    <thead>
-    <tr style="background-color: BLACK;color:WHITE;"><th>Gustos</th><th>Tipo</th><th>Cantidad</th><th>Foto</th><th>Eliminar</th><th>Editar</th></tr>
-    </thead>  
-    <tr *ngFor = "let pizza of datosTraidos"> 
-      <td><img [ngStyle]="{'width': '100px'}" src="http://localhost:80/API2/fotos/{{pizza.id}}.png"></td>       
-      <td>{{pizza.sabor}}</td>
-      <td>{{pizza.tipo}}</td>
-      <td>{{pizza.cantidad}}</td>
-     <!-- <td>{{(pizza.sexo == 'f') ? 'femenino' : 'masculino'}}</td>    -->   
-      
-      <td><button class='glyphicon glyphicon-trash btn btn-danger'(click)="EliminarPizza(pizza.id)">  Eliminar </button></td>
-      <td><button  class='btn btn-warning glyphicon glyphicon-pencil' (click)="showModificacionPrompt(pizza.id, pizza.sabor,pizza.tipo,pizza.cantidad)">  Modificar</button></td>
-    </tr>
-  </table>
-     <div>
-<br> <img src="{{foto}}" id="fotoPrevia" style=" width: 120px; height: 120px;" > <input type="file" id="foto" (change)="PrevisualizarFoto();"/>
-</div> 
-
-</div>

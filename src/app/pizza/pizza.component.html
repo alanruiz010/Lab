@@ -1,0 +1,31 @@
+<div class="container">
+  <form #form="ngForm" (ngSubmit)="onSubmit(form.value)" id="form">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Ingrese Sabor</label>
+      <input [ngModel]="pizza.sabor" type="text" class="form-control" id="exampleInputEmail1" placeholder="Ingrese Sabor" name="sabor">
+    </div>
+    <fieldset class="form-group">
+      <legend>Tipo:</legend>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input [ngModel]="pizza.tipo" type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="Piedra"  checked>
+          Piedra
+        </label>
+      </div>
+      <div class="form-check">
+      <label class="form-check-label">
+          <input [ngModel]="pizza.tipo" type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="Molde" >
+          Molde
+        </label>
+      </div>
+    </fieldset>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Cantidad</label>
+      <input [ngModel]="pizza.cantidad" type="number" class="form-control" id="exampleInputPassword1" placeholder="Ingrese cantidad" name="cantidad">
+    </div>
+    <div class="form-group">
+      <img src="{{foto}}" [ngModel]="pizza.foto"  id="fotoPrevia" style=" width: 120px; height: 120px;" > <input type="file" id="foto" (change)="PrevisualizarFoto();"/>
+    </div>
+    <button type="submit" class="btn btn-primary" form="form">Guardar</button>
+  </form>
+</div>

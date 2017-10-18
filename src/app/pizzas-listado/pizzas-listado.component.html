@@ -1,0 +1,33 @@
+
+
+<div class="container">
+  <!--<div style="margin:10px 0 10px 0">
+      <button type="button" class="btn btn-primary glyphicon glyphicon-plus" (click)=showAltaPrompt()> Usuario</button>
+
+  </div>-->
+
+
+  <table class="tabla text-center table table-bordered" >
+    <thead>
+    <tr style="background-color: BLACK;color:WHITE;">
+      <th>Foto</th>
+      <th>Sabor</th>
+      <th>Tipo</th>
+      <th>Cantidad</th>
+      <th>Eliminar</th>
+      <th>Editar</th></tr>
+    </thead>
+    <tr *ngFor = "let pizza of datosTraidos">
+      <td><img [ngStyle]="{'width': '100px'}" src="http://localhost:80/AP2/fotos/{{pizza.id}}.png"></td>
+      <td>{{pizza.sabor}}</td>
+      <td>{{pizza.tipo}}</td>
+      <td>{{pizza.cantidad}}</td>
+     <!-- <td>{{(pizza.sexo == 'f') ? 'femenino' : 'masculino'}}</td>    -->
+
+      <td><button class='glyphicon glyphicon-trash btn btn-danger'(click)="EliminarPizza(pizza.id)">  Eliminar </button></td>
+      <td><button  class='btn btn-warning glyphicon glyphicon-pencil' (click)="showModificacionPrompt(pizza.id, pizza.sabor,pizza.tipo,pizza.cantidad)">  Modificar</button></td>
+    </tr>
+  </table>
+
+
+</div>
